@@ -1,3 +1,5 @@
+<script type="text/javascript">
+
 var requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame ||
     window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
 
@@ -13,13 +15,13 @@ var canvas = document.getElementById("canvas"),
     particles = [],
     mouseX = 0,
     mouseY = 0,
-    total = 15,
+    total = 6,
     followSpeed = 0.1,
-    size = 25;
+    size = 30;
 
 document.body.addEventListener("mousemove", function (event) {
-    mouseX = event.clientX;
-    mouseY = event.clientY;
+    mouseX = event.clientX-150;
+    mouseY = event.clientY-150;
 });
 
 window.addEventListener('resize', function () {
@@ -132,7 +134,7 @@ var ControlBar = function () {
 var con = new ControlBar();
 var gui = new dat.GUI();
 var conSpeed = gui.add(con, 'speed', 0.05, 0.25).step(0.05);
-var conNum = gui.add(con, 'num', 10, 30).step(1);
+var conNum = gui.add(con, 'num', 7, 30).step(1);
 
 conNum.onFinishChange(function (value) {
     total = value;
@@ -142,3 +144,4 @@ conNum.onFinishChange(function (value) {
 
 init();
 
+</script>
